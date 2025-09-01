@@ -1,0 +1,236 @@
+Relatório do Projeto: Sistema de Locadora de Carros
+Informações do Grupo
+
+Disciplina: Programação Orientada a Objetos
+Período: 2025/II
+Data: 25 de agosto a 1 de setembro de 2025
+
+1. Descrição do Projeto
+Este projeto implementa um sistema de gerenciamento de dados para uma locadora de carros utilizando conceitos fundamentais de Programação Orientada a Objetos em Java. O sistema é capaz de processar informações sobre uma frota de veículos e extrair estatísticas relevantes para o negócio.
+1.1 Escolha da Tabela de Dados
+Optamos por trabalhar com dados de locadora de carros baseados na interface mostrada na imagem fornecida. Esta escolha atende aos requisitos do projeto por conter:
+
+Mais de 5 colunas: tipo, modelo, grupo, preço diária, categoria, disponibilidade, ano de fabricação
+3+ tipos de dados diferentes:
+
+String (tipo, modelo, categoria)
+Double (preço da diária)
+Boolean (disponibilidade)
+Integer (ano de fabricação)
+
+
+
+1.2 Utilidade das Informações Extraídas
+As estatísticas implementadas fornecem insights valiosos para o negócio:
+
+Análise de Preços: Permite identificar a faixa de preços praticada e otimizar a precificação
+Distribuição por Categoria: Auxilia no planejamento da frota e identificação de segmentos mais/menos representados
+Análise de Disponibilidade: Monitora a utilização da frota e receita potencial diária
+Análise da Idade da Frota: Controla a renovação de veículos e manutenção da qualidade
+Rankings por Preço: Facilita recomendações aos clientes e estratégias de marketing
+Distribuição por Tipo: Auxilia no balanceamento da frota conforme demanda do mercado
+
+2. Implementação Técnica
+2.1 Estrutura das Classes
+Classe Carro
+A classe principal do sistema representa um veículo da locadora com:
+Atributos:
+
+tipo: Tipo do veículo (Sedan, Hatch, SUV, etc.)
+modelo: Modelo específico do veículo
+grupo: Código de classificação (AT, AM, SM, etc.)
+precoDiaria: Valor da diária em reais
+categoria: Categoria comercial (Executivo, Compacto, etc.)
+disponivel: Status de disponibilidade
+anoFabricacao: Ano de fabricação do veículo
+
+Métodos Principais:
+
+Construtores sobrecarregados
+Getters e Setters completos
+calcularPrecoTotal(dias): Calcula preço para múltiplos dias
+isCarroNovo(): Verifica se é um carro novo (≤3 anos)
+getDescricaoResumida(): Fornece descrição concisa
+Métodos toString(), equals() e hashCode() sobrescritos
+
+Classe AplicacaoLocadora
+Classe principal responsável pelo processamento dos dados:
+Funcionalidades:
+
+Leitura de arquivos de dados com tratamento de erros
+Processamento de coleções usando ArrayList
+Cálculo de estatísticas com Java Streams
+Geração de relatórios formatados
+
+2.2 Tratamento de Dados
+O sistema implementa tratamento robusto de dados:
+
+Validação de formato de arquivo
+Tratamento de exceções (FileNotFoundException, NumberFormatException)
+Ignoração de linhas vazias e comentários
+Relatórios de erro com indicação da linha problemática
+
+2.3 Estatísticas Implementadas
+1. Estatísticas de Preços:
+
+Valores mínimo, máximo e médio
+Faturamento potencial diário total
+
+2. Distribuição por Categoria:
+
+Contagem e percentual por categoria
+Ordenação por quantidade (decrescente)
+
+3. Análise de Disponibilidade:
+
+Percentual de veículos disponíveis/indisponíveis
+Receita potencial apenas dos disponíveis
+
+4. Análise da Idade da Frota:
+
+Estatísticas dos anos de fabricação
+Identificação de carros novos (≤3 anos)
+Cálculo da idade média da frota
+
+5. Rankings:
+
+Top 5 carros mais caros (todos)
+Top 5 carros mais baratos (apenas disponíveis)
+
+6. Distribuição por Tipo:
+
+Análise da composição da frota por tipo de veículo
+
+3. Arquivos de Dados
+3.1 Formato dos Arquivos
+Formato padrão: tipo;modelo;grupo;precoDiaria;categoria;disponivel;anoFabricacao
+Exemplo:
+Sedan;Toyota Corolla;AT;158.67;Executivo;true;2023
+3.2 Conjunto de Dados 1 (carros.txt)
+
+15 registros de veículos
+Foco em categorias tradicionais: Executivo, Compacto, Manual, Luxo, Utilitario
+Mistura de disponibilidade e anos de fabricação
+
+3.3 Conjunto de Dados 2 (carros2.txt)
+
+15 registros com perfil diferente
+Inclui categorias Premium, Econômico, Intermediário, Esportivo, Familiar
+Ampla faixa de preços (R$ 75,50 a R$ 680,00)
+
+4. Conceitos de POO Aplicados
+4.1 Encapsulamento
+
+Atributos privados com acesso controlado via getters/setters
+Métodos internos privados na classe AplicacaoLocadora
+
+4.2 Abstração
+
+Classe Carro abstrai conceito de veículo de locadora
+Métodos de negócio como calcularPrecoTotal() e isCarroNovo()
+
+4.3 Polimorfismo
+
+Sobrescrita de métodos toString(), equals() e hashCode()
+Sobrecarga de construtores
+
+4.4 Uso de Collections
+
+ArrayList para armazenamento dinâmico
+Utilização de java.util.Collections para operações avançadas
+Java Streams para processamento funcional
+
+5. Ferramentas e Recursos Utilizados
+5.1 Bibliotecas Java
+
+java.io.*: Para leitura de arquivos
+java.util.*: Collections, estatísticas e ordenação
+java.util.stream.*: Processamento funcional de dados
+
+5.2 Funcionalidades Avançadas
+
+DoubleSummaryStatistics: Para estatísticas automáticas de preços
+IntSummaryStatistics: Para análise de anos de fabricação
+HashMap: Para contagem de distribuições
+Stream API: Para filtragem, ordenação e transformações
+Method References: Como Carro::getPrecoDiaria
+
+5.3 Desenvolvimento
+
+GitHub Codespaces: Ambiente de desenvolvimento
+Git: Controle de versão e colaboração
+JavaDoc: Documentação completa do código
+
+6. Compilação e Execução
+6.1 Compilação
+bashjavac *.java
+6.2 Execução
+bashjava AplicacaoLocadora carros.txt
+java AplicacaoLocadora carros2.txt
+6.3 Criação do JAR Executável
+bashjar cfm locadora.jar MANIFEST.MF *.class
+java -jar locadora.jar carros.txt
+Conteúdo do MANIFEST.MF:
+Main-Class: AplicacaoLocadora
+7. Fontes Consultadas
+7.1 Bibliografia Principal
+
+Horstmann, Cay S. "Core Java Volume I - Fundamentals"
+
+Capítulo 3: Programação Orientada a Objetos
+Capítulo 5: Herança
+Capítulo 9: Collections
+Capítulo 12: Programação Genérica
+
+
+
+
+7.2 Documentação Técnica
+
+Oracle Java Documentation: Para sintaxe de Collections e Streams
+JavaDoc Guidelines: Para padronização da documentação
+
+7.3 Ferramentas de Pesquisa
+
+Google: Pesquisa de melhores práticas em POO Java
+Stack Overflow: Resolução de dúvidas específicas sobre Streams
+GitHub: Exemplos de estruturas de projeto Java
+
+7.4 Ferramentas de IA
+
+ChatGPT: Consultas sobre formatação de relatórios e otimização de código
+GitHub Copilot: Sugestões de implementação de métodos
+Copilot: Consultas sobre formatação de relatórios e otimização de código
+Claude.ai: Consultas sobre lógica do código 
+
+8. Aprendizados e Dificuldades
+8.1 Principais Aprendizados
+
+Stream API: Compreensão profunda do processamento funcional em Java
+Collections Framework: Uso eficiente de ArrayList, HashMap e estatísticas
+Tratamento de Exceções: Implementação robusta de tratamento de erros
+JavaDoc: Importância da documentação clara e completa
+Git Colaborativo: Experiência prática com controle de versão em equipe
+
+8.2 Dificuldades Superadas
+
+Parsing de Arquivos: Implementação de leitura robusta com tratamento de formatos incorretos
+Formatação de Saída: Criação de relatórios bem formatados e informativos
+Stream Collectors: Uso avançado de collectors para agrupamentos e estatísticas
+Método equals() e hashCode(): Implementação correta para comparação de objetos
+
+8.3 Melhorias Futuras
+
+Implementação de interface gráfica
+Persistência em banco de dados
+Sistema de reservas e locações
+Relatórios em PDF/Excel
+API REST para integração
+
+9. Conclusão
+O projeto atendeu com sucesso todos os requisitos propostos, implementando um sistema funcional de gerenciamento de dados de locadora usando conceitos fundamentais de POO. A aplicação demonstra uso eficiente de Collections, tratamento de exceções, e geração de estatísticas relevantes para o negócio.
+A experiência proporcionou aprendizado significativo sobre desenvolvimento colaborativo, documentação de código, e aplicação prática dos conceitos teóricos de Programação Orientada a Objetos em um contexto real de negócios.
+
+Data de Entrega: 1 de setembro de 2025
+Grupo: João Pedro Madruga e Wellington Borges
+Disciplina: Programação Orientada a Objetos - PUCRS
