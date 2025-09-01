@@ -1,0 +1,17 @@
+# Segundo arquivo de dados da locadora de carros
+# Formato: tipo;modelo;grupo;precoDiaria;categoria;disponivel;anoFabricacao
+Sedan;BMW 320i;PL;350.00;Premium;true;2024
+Hatch;Volkswagen Gol;EC;75.50;Economico;true;2020
+SUV;Audi Q3;PL;380.90;Premium;false;2024
+Sedan;Mercedes C180;PL;420.60;Premium;true;2023
+Hatch;Ford Ka;EC;82.40;Economico;true;2021
+SUV;BMW X1;PL;365.70;Premium;true;2023
+Sedan;Hyundai HB20S;IN;125.80;Intermediario;true;2022
+Hatch;Citroën C3;IN;98.90;Intermediario;false;2021
+SUV;Volvo XC40;PL;450.00;Premium;true;2024
+Sedan;Chevrolet Cruze;IN;155.30;Intermediario;true;2020
+Hatch;Nissan March;EC;79.20;Economico;true;2019
+SUV;Land Rover Evoque;PL;520.80;Premium;false;2024
+Conversivel;BMW Z4;SP;680.00;Esportivo;true;2023
+Conversivel;Audi TT;SP;650.50;Esportivo;false;2022
+Minivan;Honda Odyssey;FM;198.70;Familiar;true;2021
