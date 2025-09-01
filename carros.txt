@@ -1,0 +1,17 @@
+# Arquivo de dados da locadora de carros
+# Formato: tipo;modelo;grupo;precoDiaria;categoria;disponivel;anoFabricacao
+Sedan;Toyota Corolla;AT;158.67;Executivo;true;2023
+Hatch;Fiat Mobi;AM;92.69;Compacto;true;2022
+SUV;Renault Duster;SM;132.78;Manual;true;2021
+SUV;Volkswagen Taos;SG;201.07;Luxo;true;2024
+Sedan;Honda Civic;AT;175.50;Executivo;false;2023
+Hatch;Chevrolet Onix;AM;95.30;Compacto;true;2022
+SUV;Hyundai Creta;SM;145.90;Manual;true;2021
+Pickup;Ford Ranger;PT;280.00;Utilitario;false;2024
+Sedan;Volkswagen Jetta;AT;165.40;Executivo;true;2020
+Hatch;Renault Sandero;AM;88.75;Compacto;true;2021
+SUV;Jeep Compass;SG;195.60;Luxo;true;2023
+Sedan;Nissan Versa;AT;142.30;Executivo;true;2022
+Hatch;Peugeot 208;AM;110.25;Compacto;false;2023
+SUV;Toyota RAV4;SG;220.80;Luxo;true;2024
+Pickup;Volkswagen Amarok;PT;295.50;Utilitario;true;2023
